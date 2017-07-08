@@ -10,9 +10,16 @@ It's GPS tracker extends Service and implements LocationListener
 
 ## How to use
 
-* First : Add GPSTracker.class
+* First : add permission in AndroidManifest.xml
 
-* Second : In Activity you must check premession, so call this function when you start.
+```
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+```
+
+* Second : Add GPSTracker.class
+
+* Third : In Activity you must check premession, so call this function when you start.
 
 ```java
 private void GPSPremessionCheck() {
@@ -51,11 +58,14 @@ private void GPSPremessionCheck() {
 
     }
 ```    
-* Third : Set variable
+* Fourth : Set variable
 
 ```java
- mGps = new GPSTracker(this);
-        mLatitude = mGps.getLatitude(); //獲取緯度
-        mLongitude =mGps.getLongtitude(); //獲取經度
-        Log.e("GPS",mLatitude+" "+mLongitude);
+    private GPSTracker mGps;
+    private double mLatitude=0.0,mLongitude=0.0;
+    
+    mGps = new GPSTracker(this);
+    mLatitude = mGps.getLatitude(); //獲取緯度
+    mLongitude =mGps.getLongtitude(); //獲取經度
+    Log.e("GPS",mLatitude+" "+mLongitude);
 ```
